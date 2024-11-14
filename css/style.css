@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+body,
+* {
+    font-family: "Manrope", sans-serif;
+}
+
+
+/* hero section css */
+.header {
+    padding: 1.8em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: none;
+    font-weight: 800;
+    color: #4b4b4b;
+}
+
+.logo {
+    width: 10em;
+}
+
+
+
+.button-shine {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 6px;
+    background-color: #2B2B2B;
+    border: none;
+    padding: 1em 3em 1em 3em;
+    font-family: "Manrope", sans-serif;
+    cursor: pointer;
+    box-shadow: #2b2b2b63 0px 0px 20px;
+    --shine-position: -450%;  /* CSS variable to control the shine position */
+}
+
+.button-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    opacity: var(--opacity);
+    left: var(--shine-position); 
+    width: 15%;
+    height: 100%;
+    filter: blur(25px);
+    background: rgb(255, 255, 255);
+
+    transform: skewX(-45deg);
+    transition: left 0.9s ease-out; /* Smooth transition */
+}
+
+.search{
+    padding: 1em 2.2em 1em 2em;
+    box-shadow: none;
+}
+
+
+.hamburger {
+    background-color: transparent;
+    border: none;
+    
+}
+
+/* main body */
+.herocontainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em;
+
+}
+
+.textbox {
+    font-family: "Manrope", sans-serif;
+}
+
+.textbox>h1 {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.textbox>p {
+    margin-top: 10px;
+    font-weight: 800;
+    color: #4b4b4b;
+}
+
+.textbox>form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid gray;
+    
+}
+
+.textbox>form>input {
+    border: none;
+    width: 100%;
+
+}
+
+
+
+.imagebox {
+    margin-top: 20px;
+    overflow: hidden;
+
+}
+
+.imagebox img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.textdivider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: max-content;
+    margin: 20px 0;
+}
+
+.textdivider h1 {
+    font-size: 1.25em;
+    font-family: "Manrope", sans-serif;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+
+.text-items-container {
+    padding: 2em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    height: 80%;
+}
+
+.textdivider>section>h3 {
+    margin: 20px 0;
+    width: 60%;
+    text-align: center;
+}
+
+.verticalline {
+    background-color: #979797;
+    width: 50px;
+    height: 2px;
+}
+
+.verticalline:first-child {
+    opacity: 0;
+}
+
+.productcontainer {
+    padding: 1.25em;
+    font-family: "Manrope", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.productcontainer .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.products {
+    margin-top: 1.5em;
+}
+
+
+
+/* Overlay styles */
+.out-of-stock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Higher z-index to ensure it appears above the product */
+    color: white;
+    font-family: "Manrope", sans-serif;
+    font-size: 1.2em;
+    font-weight: semibold;
+    border-radius: 20px;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* OK Button inside the overlay */
+.ok-button {
+    background-color: #2B2B2B;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.ok-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.productflexcontainer {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer; 
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.productflexcontainer:hover {
+    transform: scale(1.05); 
+}
+
+.gradientbg{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+#granim-canvas{
+    display: none;
+}
+
+
+.productflexcontainer img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.productflexcontainer .productdesc {
+    padding: 1em;
+
+}
+
+.productflexcontainer .productdesc h1 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.productflexcontainer .productdesc p {
+    font-size: 0.8em;
+    line-height: normal;
+    margin-top: 5px;
+}
+
+
+
+/* footer css */
+
+footer {
+    color: white;
+
+    background-color: #2B2B2B;
+    margin: auto;
+
+}
+
+
+.footercontainer {
+    padding: 1.8em;
+    font-size: 16px;
+    font-family: "Manrope", sans-serif;
+}
+
+.footercontainer>section:nth-child(1)>img {
+    width: 12em;
+}
+
+.footer_quote {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.footer_quote>section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_quote>section>h1 {
+    font-size: 18px;
+    line-height: normal;
+    margin-top: 25px;
+    width: 80%;
+}
+
+.footer_quote>section>h2 {
+    font-weight: light;
+    font-size: 12px;
+    margin-bottom: 10px;
+
+}
+
+.bottom_text {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.policies {
+    display: flex;
+    margin: 8px 0px;
+    font-size: 12px;
+    opacity: .5;
+}
+
+.policies>h2 {
+    margin-right: 30px;
+}
+
+.copyright {
+    font-size: 12px;
+    margin-top: 5px;
+    opacity: .5;
+}
+
+
+.policies>h2:nth-child(2) {
+    margin-left: 12px;
+}
+
+/* media query for desktop responsive */
+
+@media only screen and (min-width: 560px) {
+
+    .header {
+        align-items: center;
+        padding: 2em 5em;
+    }
+
+    .navigation {
+        display: block;
+        margin-left: auto;
+    }
+
+    .navigation>ul {
+        display: flex;
+        align-items: center;
+    }
+
+    .navigation>ul>li {
+        margin-right: 1em;
+        font-family: "Manrope", sans-serif;
+    }
+
+    
+
+    .hamburger {
+        display: none;
+    }
+
+    .signup {
+        display: block;
+        padding: 1em;
+        background-color: #2B2B2B;
+        color: white;
+        border: none;
+    }
+
+    .herocontainer {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .herocontainer .textbox {
+        width: 40%;
+        padding: 1em;
+    }
+
+    .herocontainer .imagebox img {
+        width: 500px;
+        height: 300px;
+    }
+
+    .textbox h1 {
+        font-size: 2em;
+    }
+
+    .textbox p {
+        margin: 2em 0;
+        font-size: 1em;
+    }
+
+    .textdivider {
+        padding: 1.25em;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .textdivider section {
+        /* width: min(900px, 60vw); */
+        flex-direction: row;
+        /* padding: 10px; */
+        position: relative;
+    }
+    #granim-canvas{
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        display: block;
+      
+    }
+   
+    .verticalline {
+        transform: rotate(90deg);
+    }
+
+    .verticalline:last-child {
+        opacity: 0;
+    }
+
+    .products {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 10px;
+
+    }
+
+    .heading {
+        font-size: 1.25em;
+        margin-left: 3.3em;
+    }
+
+    .productflexcontainer {
+        flex-basis: 25%;
+        margin: unset;
+        margin-bottom: 4em;
+    }
+
+    .footercontainer {
+        padding: 2em 6em;
+    }
+}
